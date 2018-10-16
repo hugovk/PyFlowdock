@@ -1,4 +1,7 @@
 # PyFlowdock
+
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+
 Simple [Flowdock APIs](https://flowdock.com/api) wrapper with some useful helpers. Only [Push API](https://flowdock.com/api/push) (Team Inbox and Chat) and [Streaming API](https://flowdock.com/api/streaming) available at this moment.
 ## Installation
 You know how to do it… Right? Just `(sudo) pip install pyflowdock` it or use `(sudo) python setup.py install` inside **pyflowdock** folder.
