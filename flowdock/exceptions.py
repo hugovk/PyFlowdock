@@ -2,4 +2,4 @@
 
 
 class FlowdockException(Exception):
-	pass
+    pass

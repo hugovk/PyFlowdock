@@ -1,6 +1,7 @@
 # PyFlowdock
 
 [![Build Status](https://travis-ci.org/hugovk/PyFlowdock.svg?branch=master)](https://travis-ci.org/hugovk/PyFlowdock)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 
 Simple [Flowdock APIs](https://flowdock.com/api) wrapper with some useful helpers. Only [Push API](https://flowdock.com/api/push) (Team Inbox and Chat) and [Streaming API](https://flowdock.com/api/streaming) available at this moment.
 ## Installation
