@@ -5,7 +5,10 @@ from re import match, IGNORECASE
 PUSH_TEAM_INBOX_API_URL = "https://api.flowdock.com/v1/messages/team_inbox/%s"
 PUSH_CHAT_API_URL = "https://api.flowdock.com/v1/messages/chat/%s"
 
-EMAIL = r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
+EMAIL = (
+    r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9]"
+    r"(?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
+)
 ALPHANUMERIC_UNDERSCORES_WHITESPACE = r"^[a-z0-9_ ]+$"
 
 
@@ -45,16 +48,18 @@ class TeamInbox(PushAPI):
         tags=None,
         link=None,
     ):
-        assert match(
-            ALPHANUMERIC_UNDERSCORES_WHITESPACE, source, IGNORECASE
-        ), "The `source` argument must contain only alphanumeric characters, underscores and whitespace."
+        assert match(ALPHANUMERIC_UNDERSCORES_WHITESPACE, source, IGNORECASE), (
+            "The `source` argument must contain only alphanumeric characters, "
+            "underscores and whitespace."
+        )
         assert match(
             EMAIL, from_address
         ), "The `from_address` argument must be a valid email address."
         if project:
-            assert match(
-                ALPHANUMERIC_UNDERSCORES_WHITESPACE, project, IGNORECASE
-            ), "The `project` argument must contain only alphanumeric characters, underscores and whitespace."
+            assert match(ALPHANUMERIC_UNDERSCORES_WHITESPACE, project, IGNORECASE), (
+                "The `project` argument must contain only alphanumeric characters, "
+                "underscores and whitespace."
+            )
         return super(TeamInbox, self).post(locals())
 
 
