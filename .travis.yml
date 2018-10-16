@@ -17,12 +17,10 @@ matrix:
 
 install:
  - pip install -U pip
- - pip install -U pyflakes pycodestyle
+ - pip install -U flake8
+ - if [[ $TRAVIS_PYTHON_VERSION == 3.6 ]]; then pip install -U black; fi
 
 script:
  # Static analysis
- - pyflakes .
-
-after_script:
- # For info only, won't fail the build
- - pycodestyle --statistics --count .
+ - flake8 --statistics --count
+ - if [[ $TRAVIS_PYTHON_VERSION == 3.6 ]]; then black --check --diff .; fi
