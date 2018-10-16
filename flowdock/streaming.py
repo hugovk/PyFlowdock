@@ -21,7 +21,7 @@ class StreamingAPI(object):
         self.connection = None
 
     def __repr__(self):
-        return "%s(%s, %s, %s, %s) instance at %s" % (
+        return "{}({}, {}, {}, {}) instance at {}".format(
             self.__class__.__name__,
             self.personal_api_token,
             self.flows,
