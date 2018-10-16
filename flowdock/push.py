@@ -18,15 +18,11 @@ class PushAPI(object):
 
     def __repr__(self):
         return "{}({}) instance at {}".format(
-            self.__class__.__name__,
-            self.flow_api_token,
-            hex(id(self)),
+            self.__class__.__name__, self.flow_api_token, hex(id(self))
         )
 
     def post(self, data):
-        data = {
-            k: v for k, v in data.iteritems() if k != "self" and v is not None
-        }
+        data = {k: v for k, v in data.iteritems() if k != "self" and v is not None}
         response = requests.post(self.api_url, data=data)
         if not response.ok:
             response.raise_for_status()
